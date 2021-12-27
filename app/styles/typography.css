@@ -1,0 +1,15 @@
+h1 {
+  font-size: var(--size-8);
+}
+
+h2 {
+  font-size: var(--size-7);
+}
+
+h3 {
+  font-size: var(--size-6);
+}
+
+h4 {
+  font-size: var(--size-5);
+}

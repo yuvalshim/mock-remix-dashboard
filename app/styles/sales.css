@@ -1,0 +1,25 @@
+.invoicesList {
+  display: flex;
+  border-radius: 10px;
+  border: 1px solid var(--gray-2);
+}
+
+.invoicesList .active {
+  background-color: var(--nav-bg-hover);
+}
+
+.invoicesList ul {
+  flex: 2;
+  padding: 20px;
+  border-right: 1px solid var(--gray-2);
+}
+
+.invoicesList .invoiceRow {
+  display: flex;
+  justify-content: space-between;
+}
+
+.invoicesList div {
+  flex: 1;
+  padding: 20px;
+}

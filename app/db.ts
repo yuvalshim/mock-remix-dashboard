@@ -1,0 +1,46 @@
+export type User = {
+  id: string;
+  name: string;
+  email: string;
+};
+
+export async function getUser(): Promise<User> {
+  return {
+    id: "ak35kd2n4ho",
+    name: "Yuval Shimoni",
+    email: "johndoe@example.com",
+  };
+}
+
+export type Invoice = {
+  id: string;
+  title: string;
+  amount: string;
+  currency: "EUR" | "USD" | "GBP";
+  year: number;
+};
+
+export async function getInvoices(): Promise<Array<Invoice>> {
+  return [
+    {
+      id: "e8obdnsoim8",
+      title: "Teddy Bear",
+      amount: "$10,000",
+      currency: "EUR",
+      year: 2000,
+    },
+    {
+      id: "j8u90tr3iro",
+      title: "Tacos",
+      amount: "$8000",
+      currency: "USD",
+      year: 2005,
+    },
+  ];
+}
+
+export async function getInvoice(id: string) {
+  const invoices = await getInvoices();
+
+  return invoices.find((invoice) => invoice.id === id);
+}

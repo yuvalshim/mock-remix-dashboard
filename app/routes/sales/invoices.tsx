@@ -1,0 +1,46 @@
+import { Outlet, useLoaderData, NavLink } from "remix";
+import type { LoaderFunction } from "remix";
+import { getInvoices, Invoice } from "~/db";
+
+export const loader: LoaderFunction = async () => {
+  return getInvoices();
+};
+
+export default () => {
+  const invoices = useLoaderData<Invoice[]>();
+
+  return (
+    <div>
+      <h5 className="uppercase" style={{ color: "#f3be00" }}>
+        Invoices list
+      </h5>
+
+      <div className="invoicesList">
+        <ul className="flexColumn">
+          {invoices.map((invoice) => (
+            <NavLink
+              key={invoice.id}
+              to={invoice.id}
+              className={({ isActive }) => (isActive ? "active" : "")}
+            >
+              <div className="invoiceRow">
+                <span>
+                  <h5>{invoice.title}</h5>
+                  <label>{invoice.year}</label>
+                </span>
+
+                <span>
+                  <h5>{invoice.amount}</h5>
+                </span>
+              </div>
+            </NavLink>
+          ))}
+        </ul>
+
+        <div>
+          <Outlet />
+        </div>
+      </div>
+    </div>
+  );
+};
