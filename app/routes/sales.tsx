@@ -19,6 +19,7 @@ export default () => {
             key={tab}
             to={tab}
             style={({ isActive }) => (isActive ? { color: "#000" } : {})}
+            prefetch="intent"
           >
             {tab}
           </NavLink>

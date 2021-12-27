@@ -1,3 +1,12 @@
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  margin: 0;
+}
+
 h1 {
   font-size: var(--size-8);
 }
@@ -12,4 +21,14 @@ h3 {
 
 h4 {
   font-size: var(--size-5);
+}
+
+h5 {
+  font-size: var(--size-4);
+}
+
+.sectionTitle {
+  margin: 25px 0;
+  color: var(--yellow);
+  text-transform: uppercase;
 }

@@ -11,7 +11,7 @@ export default () => {
 
   return (
     <div>
-      <h5 className="uppercase" style={{ color: "#f3be00" }}>
+      <h5 className="sectionTitle uppercase" style={{ color: "#f3be00" }}>
         Invoices list
       </h5>
 
@@ -23,7 +23,7 @@ export default () => {
               to={invoice.id}
               className={({ isActive }) => (isActive ? "active" : "")}
             >
-              <div className="invoiceRow">
+              <li className="invoiceRow">
                 <span>
                   <h5>{invoice.title}</h5>
                   <label>{invoice.year}</label>
@@ -32,7 +32,7 @@ export default () => {
                 <span>
                   <h5>{invoice.amount}</h5>
                 </span>
-              </div>
+              </li>
             </NavLink>
           ))}
         </ul>

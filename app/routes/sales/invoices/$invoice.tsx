@@ -18,8 +18,8 @@ export default () => {
   return (
     <div>
       <div>{invoice.title}</div>
+      <h3>{invoice.amount}</h3>
       <div>{invoice.currency}</div>
-      <div>{invoice.amount}</div>
     </div>
   );
 };
