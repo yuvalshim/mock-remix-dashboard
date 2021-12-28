@@ -17,9 +17,9 @@ export default () => {
 
   return (
     <div>
-      <div>{invoice.title}</div>
-      <h3>{invoice.amount}</h3>
-      <div>{invoice.currency}</div>
+      <label>{invoice.title}</label>
+      <h3 style={{ color: "#7b5acf" }}>{invoice.amount}</h3>
+      <span>{invoice.currency}</span>
     </div>
   );
 };
