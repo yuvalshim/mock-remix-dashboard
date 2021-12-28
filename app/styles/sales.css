@@ -20,6 +20,10 @@
   padding: 15px;
 }
 
+.invoicesList a:not(.active):hover {
+  background-color: var(--gray);
+}
+
 .invoicesList .invoiceRow h5 {
   color: black;
 }

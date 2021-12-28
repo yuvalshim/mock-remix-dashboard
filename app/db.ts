@@ -36,10 +36,26 @@ export async function getInvoices(): Promise<Array<Invoice>> {
       currency: "USD",
       year: 2005,
     },
+    {
+      id: "j8u90tro",
+      title: "Code Value",
+      amount: "$8000",
+      currency: "USD",
+      year: 2000,
+    },
+    {
+      id: "j8tr3iro",
+      title: "Gob Li",
+      amount: "$8000",
+      currency: "USD",
+      year: 1994,
+    },
   ];
 }
 
 export async function getInvoice(id: string) {
+  await new Promise((resolve) => setTimeout(resolve, 1000));
+
   const invoices = await getInvoices();
 
   return invoices.find((invoice) => invoice.id === id);

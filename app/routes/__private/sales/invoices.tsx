@@ -22,6 +22,7 @@ export default () => {
               key={invoice.id}
               to={invoice.id}
               className={({ isActive }) => (isActive ? "active" : "")}
+              prefetch="intent"
             >
               <li className="invoiceRow">
                 <span>

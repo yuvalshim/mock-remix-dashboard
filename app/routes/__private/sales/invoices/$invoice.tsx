@@ -1,4 +1,4 @@
-import { useLoaderData } from "remix";
+import { useLoaderData, json } from "remix";
 import type { LoaderFunction } from "remix";
 import { getInvoice, Invoice } from "~/db";
 
@@ -9,7 +9,9 @@ export const loader: LoaderFunction = async ({ params }) => {
     });
   }
 
-  return getInvoice(params.invoice);
+  return json(await getInvoice(params.invoice), {
+    headers: { "Cache-Control": "max-age=10" },
+  });
 };
 
 export default () => {
