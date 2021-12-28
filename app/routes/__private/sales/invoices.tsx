@@ -1,6 +1,6 @@
 import { Outlet, useLoaderData, NavLink } from "remix";
 import type { LoaderFunction } from "remix";
-import { getInvoices, Invoice } from "~/db";
+import { getInvoices, Invoice } from "~/db.server";
 
 export const loader: LoaderFunction = async () => {
   return getInvoices();

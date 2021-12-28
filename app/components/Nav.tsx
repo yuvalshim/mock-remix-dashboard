@@ -1,5 +1,5 @@
 import { NavLink } from "remix";
-import { User } from "~/db";
+import { User } from "~/db.server";
 
 let activeClassName = "activeNav";
 
@@ -32,6 +32,12 @@ export default function Nav({ name }: Partial<User>) {
       <h5 style={{ marginTop: "auto", paddingLeft: 15, color: "var(--pink)" }}>
         {name}
       </h5>
+
+      <form action="/logout" method="post">
+        <button type="submit" className="button">
+          Logout
+        </button>
+      </form>
     </nav>
   );
 }

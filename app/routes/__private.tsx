@@ -1,7 +1,7 @@
 import { Outlet, useLoaderData } from "remix";
 import type { LoaderFunction } from "remix";
 
-import { getUser, User } from "~/db";
+import { getUser, User } from "~/db.server";
 import Nav from "~/components/Nav";
 
 export const loader: LoaderFunction = async () => {

@@ -1,6 +1,6 @@
 import { useLoaderData, json } from "remix";
 import type { LoaderFunction } from "remix";
-import { getInvoice, Invoice } from "~/db";
+import { getInvoice, Invoice } from "~/db.server";
 
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.invoice) {
