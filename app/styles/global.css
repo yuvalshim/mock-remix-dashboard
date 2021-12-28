@@ -136,3 +136,33 @@ nav a:hover {
 .uppercase {
   text-transform: uppercase;
 }
+
+.boxes {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 15px;
+  width: 100%;
+}
+
+.boxes .box {
+  padding: 15px;
+  border-radius: 6px;
+  height: 300px;
+  width: calc(50% - 15px);
+  border: 1px solid var(--gray-3);
+}
+
+.invoiceRow {
+  display: flex;
+  justify-content: space-between;
+  padding: 15px;
+}
+
+.invoiceRow:hover {
+  background-color: var(--gray);
+}
+
+.invoiceRow h5 {
+  color: black;
+}
