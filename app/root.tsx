@@ -1,3 +1,4 @@
+import React from "react";
 import {
   Links,
   LiveReload,
@@ -5,8 +6,11 @@ import {
   Outlet,
   Scripts,
   ScrollRestoration,
+  useTransition,
 } from "remix";
 import type { MetaFunction, LinksFunction } from "remix";
+import NProgress from "nprogress";
+import nProgressStyles from "~/styles/ng.css";
 import stylesUrl from "~/styles/global.css";
 import stylesTypography from "~/styles/typography.css";
 import flexHelpers from "~/styles/flexHelpers.css";
@@ -18,6 +22,7 @@ export const links: LinksFunction = () => [
   { rel: "stylesheet", href: stylesTypography },
   { rel: "stylesheet", href: flexHelpers },
   { rel: "preload", as: "font", href: "/font/founders-grotesk-bold.woff2" },
+  { rel: "stylesheet", href: nProgressStyles },
 ];
 
 export default () => (
@@ -31,7 +36,7 @@ export default () => (
     </head>
 
     <body>
-      <Outlet />
+      <App />
 
       <ScrollRestoration />
       <Scripts />
@@ -39,3 +44,17 @@ export default () => (
     </body>
   </html>
 );
+
+const App = () => {
+  let transition = useTransition();
+
+  React.useEffect(() => {
+    // when the state is idle then we can to complete the progress bar
+    if (transition.state === "idle") NProgress.done();
+    // and when it's something else it means it's either submitting a form or
+    // waiting for the loaders of the next location so we start it
+    else NProgress.start();
+  }, [transition.state]);
+
+  return <Outlet />;
+};
