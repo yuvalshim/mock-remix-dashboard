@@ -7,7 +7,7 @@ export type User = {
 export async function getUser(): Promise<User> {
   return {
     id: "ak35kd2n4ho",
-    name: "Yuval Shimoni",
+    name: "Remix Run",
     email: "johndoe@example.com",
   };
 }
