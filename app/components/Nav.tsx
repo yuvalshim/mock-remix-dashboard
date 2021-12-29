@@ -36,11 +36,13 @@ export default function Nav({ name }: Partial<User>) {
         {name}
       </h5>
 
-      <form action="/logout" method="post">
-        <button type="submit" className="button">
-          Logout
-        </button>
-      </form>
+      <div style={{ paddingLeft: 15, marginTop: 15 }}>
+        <form action="/logout" method="post">
+          <button type="submit" className="button">
+            Logout
+          </button>
+        </form>
+      </div>
     </nav>
   );
 }
