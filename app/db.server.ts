@@ -21,6 +21,8 @@ export type Invoice = {
 };
 
 export async function getInvoices(): Promise<Array<Invoice>> {
+  await new Promise((resolve) => setTimeout(resolve, 1500));
+
   return [
     {
       id: "e8obdnsoim8",
@@ -54,8 +56,6 @@ export async function getInvoices(): Promise<Array<Invoice>> {
 }
 
 export async function getInvoice(id: string) {
-  await new Promise((resolve) => setTimeout(resolve, 1000));
-
   const invoices = await getInvoices();
 
   return invoices.find((invoice) => invoice.id === id);

@@ -63,7 +63,8 @@ body {
 }
 
 .main-wrapper {
-  display: flex;
+  display: grid;
+  grid-template-columns: clamp(200px, 18.5vw, 350px) 1fr;
 }
 
 main {
@@ -78,10 +79,12 @@ a:hover {
 }
 
 nav {
-  flex: 1;
+  top: 0;
   height: 100vh;
-  background-color: var(--nav-bg);
   padding: 20px;
+  overflow: auto;
+  position: sticky;
+  background-color: var(--nav-bg);
 }
 
 nav > div {

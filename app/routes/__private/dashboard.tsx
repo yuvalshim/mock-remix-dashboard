@@ -1,11 +1,21 @@
-import { useLoaderData, Link } from "remix";
+import { useLoaderData, Link, json } from "remix";
 import type { LoaderFunction } from "remix";
 import { getInvoices, Invoice } from "~/db.server";
 
 export const loader: LoaderFunction = async () => {
   const invoices = await getInvoices();
 
-  return invoices.slice(0, 2);
+  /* Reduce the data on the server - less Junk on the network */
+  const list = invoices.slice(0, 2).map(({ id, title, year, amount }) => ({
+    id,
+    title,
+    year,
+    amount,
+  }));
+
+  return json(list, {
+    headers: { "Cache-Control": "max-age=30" },
+  });
 };
 
 export default () => {
@@ -18,7 +28,11 @@ export default () => {
       <div className="boxes">
         <div className="box">
           {invoices.map((invoice) => (
-            <Link key={invoice.id} to={`/sales/invoices/${invoice.id}`}>
+            <Link
+              key={invoice.id}
+              to={`/sales/invoices/${invoice.id}`}
+              prefetch="intent"
+            >
               <li className="invoiceRow">
                 <span>
                   <h5>{invoice.title}</h5>

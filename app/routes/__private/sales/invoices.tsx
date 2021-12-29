@@ -1,9 +1,12 @@
-import { Outlet, useLoaderData, NavLink } from "remix";
+import { Outlet, useLoaderData, NavLink, json } from "remix";
 import type { LoaderFunction } from "remix";
 import { getInvoices, Invoice } from "~/db.server";
 
+/* Same types both client & server */
 export const loader: LoaderFunction = async () => {
-  return getInvoices();
+  return json(await getInvoices(), {
+    headers: { "Cache-Control": "max-age=30" },
+  });
 };
 
 export default () => {
