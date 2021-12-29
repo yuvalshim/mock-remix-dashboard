@@ -2,6 +2,11 @@ import { useLoaderData, json, useTransition } from "remix";
 import type { LoaderFunction } from "remix";
 import { getInvoice, Invoice } from "~/db.server";
 
+/*
+Dynamic route parameter 
+https://remix.run/docs/en/v1/api/conventions#dynamic-route-parameters
+https://remix.run/docs/en/v1/api/conventions#loader-params
+*/
 export const loader: LoaderFunction = async ({ params }) => {
   if (!params.invoice) {
     throw new Response(`No invoice ID provided`, {
@@ -14,6 +19,10 @@ export const loader: LoaderFunction = async ({ params }) => {
   });
 };
 
+/**
+ Display loading on navigation 
+ https://remix.run/docs/en/v1/api/remix#usetransition
+ */
 export default () => {
   const transition = useTransition();
   const invoice = useLoaderData<Invoice>();

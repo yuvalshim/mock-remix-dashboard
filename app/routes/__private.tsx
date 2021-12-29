@@ -9,6 +9,10 @@ export const loader: LoaderFunction = async () => {
   return getUser();
 };
 
+/* 
+Flat-layout-route 
+https://remix.run/docs/en/v1/api/conventions#flat-layout-routes
+*/
 export default () => {
   const user = useLoaderData<User>();
 

@@ -18,6 +18,10 @@ export const loader: LoaderFunction = async () => {
   });
 };
 
+/* 
+Prefetch on hover -
+https://remix.run/docs/en/v1/api/remix#link
+*/
 export default () => {
   const invoices = useLoaderData<Invoice[]>();
 

@@ -6,6 +6,9 @@ let activeClassName = "activeNav";
 const classNameFunc = ({ isActive }: { isActive: boolean }) =>
   isActive ? activeClassName : "";
 
+/*
+  https://remix.run/docs/en/v1/api/remix#navlink
+  */
 export default function Nav({ name }: Partial<User>) {
   return (
     <nav className="flexColumn">
